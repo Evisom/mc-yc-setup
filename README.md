@@ -26,13 +26,19 @@ How to configure
 
 0. Create telegram bot using `@BotFather` and create chat with your friends
 1. Create an instance on Yandex Cloud (2 CPU's + 4gbs of RAM is optimal imo)
-2. On your low-performance server (or your pc) download [Yandex Cloud CLI](https://yandex.cloud/en/docs/cli/quickstart)
-
-   - run `yc init`
-   - enter yout OAuth token
-   - configure your profile (just select all default values)
-   - as a result - you should get a token after running `yc iam create-token`
-
-3. Also on low-performance server, clone bot folder from this repo.
-   - you need to create passwordless ssh connnection between your servers, run `ssh-keygen` on your low-performance server and on your high-performance server add `~/.ssh/id_rsa.pub` (from low-performance server) to `~/.ssh/authorized_keys`, test your connection using `ssh username@host`
-   - enter telegramToken,
+2. High-performance server
+   - Install Docker
+   - Clone server folder from this repo
+   - Add your low-performance ssh key to `~/.ssh/authorized_keys`
+   - Build Docker image using `build.sh`
+   - Run Docker container using `run.sh`
+   - NOTE: you can copy your world into `server/world`
+3. Low-performance server (or your pc)
+   - Download [Yandex Cloud CLI](https://yandex.cloud/en/docs/cli/quickstart)
+   - Configure yc-cli, run `yc init`, enter your OAuth token
+   - As a result - you should get a token after running `yc iam create-token`
+   - Clone `bot` folder
+   - Install dependencies using `pip3 install`
+   - Enter all required fields in config.py,
+   - Install screen (`sudo apt-get install screen` for Debain based distros)
+   - run `screen.sh`
