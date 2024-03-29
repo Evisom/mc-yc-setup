@@ -1,12 +1,13 @@
 config = {
-    'telegram_token': '',
+    'telegram_token' : '',
     'allowed_chats' : [''],
-    'instance_id': '', # yandex cloud instance id
-    'ip': '51.250.92.43', # ip for ssh connection
-    'ssh_user' : 'frolower',
-    'ssh_server_path' : '/',
+    'instance_id': '',
+    'ip': '', # ip for ssh connection
+    'ssh_username' : '', # username for ssh connection
+    'ssh_server_path' : '', # path to minecraft server folder 
     'backup_host' : '', # ip/domain for backup website
-    'rcon_port' : 8973, # minecraft rcon port
+    'minecraft_host' : '', #ip/doman with port for minecraft server
+    'rcon_port' : 0, # minecraft rcon port
     'rcon_password': '', # minecraft rcon password
     'language' : 'ENGLISH' # ENGLISH / RUSSIAN
 }

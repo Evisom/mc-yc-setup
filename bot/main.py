@@ -3,7 +3,7 @@ from YandexAPI import YandexAPI
 from RCon import RCon
 import telebot
 import subprocess
-
+from backup import create_backup
 
 from locale import LOCALE
 lang = LOCALE['LANGUAGES'][config['language']]
@@ -71,9 +71,7 @@ def handle_backup(message):
     if r == 'RUNNING':
         bot.send_message(message.chat.id, LOCALE['BACKUP_IN_PROGRESS'][lang])
         try:
-            subprocess.Popen(['bash get_backup.sh'],shell=True,
-                           stdout=subprocess.PIPE, 
-                           stderr=subprocess.PIPE).communicate()
+            create_backup()
             bot.send_message(message.chat.id, LOCALE['BACKUP_SUCCESS'][lang])
         except Exception as error:
             print(error)

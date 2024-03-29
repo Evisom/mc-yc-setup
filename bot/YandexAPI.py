@@ -9,7 +9,7 @@ class YandexAPI:
         self.url = 'https://compute.api.cloud.yandex.net/compute/v1/instances/'
 
     def get_token(self):
-        token = subprocess.Popen(['/root/yandex-cloud/bin/yc iam create-token'],shell=True,
+        token = subprocess.Popen(['yc iam create-token'],shell=True,
                            stdout=subprocess.PIPE, 
                            stderr=subprocess.PIPE).communicate()
         if str(token[1].decode()) == '':

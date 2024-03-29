@@ -1,3 +1,5 @@
+from config import config
+
 LOCALE = {
     "LANGUAGES": {
         "ENGLISH" : 0,
@@ -8,8 +10,8 @@ LOCALE = {
         "ты не можешь управлять сервером из этого чата, если ты админ, то добавь ID в allowed_chats и перезагрузи бота. ID: "
     ),
     "SERVER_STARTED": (
-        "server started successfully, wait a couple of minutes and you're ready to play!",
-        "сервер успешно запущен, подожди пару минут и можно будет играть!"
+        "server started successfully, wait a couple of minutes and you're ready to play!\nMinecraft URL: " + config['minecraft_host'],
+        "сервер успешно запущен, подожди пару минут и можно будет играть!\nMinecraft URL: " + config['minecraft_host']
     ),
     "SERVER_STOPPED": (
         "server stopped successfully!",
@@ -32,8 +34,8 @@ LOCALE = {
         "резервная копия создается..."
     ), 
     "BACKUP_SUCCESS": (
-        "backup created successfully!",
-        "резервная копия успешно создана!"
+        "backup created successfully!\nBackup URL: " + config['backup_host'],
+        "резервная копия успешно создана!\nMinecraft URL: " + config['backup_host']
     ),
     "UNABLE_TO_BACKUP": (
         "server is down, unable to create a backup",
